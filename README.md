@@ -1,44 +1,44 @@
 
-## PHP, databaser och versionshantering
+# PHP, databaser och versionshantering
   
-# Projekt i grupp – IK Svalan
+## Projekt i grupp – IK Svalan
   * Emil
   * Oscar
   * Tilda
   * Victor
 
-# Mål: Att bygga upp en webbplats för en idrottsförening.
+## Mål: Att bygga upp en webbplats för en idrottsförening.
 
-# Syfte 
+## Syfte 
   Med laravel som verktyg ska ni bygga upp en fullskalig webbplats för IK Svalan, där medlemmar kan logga in och administratörer kan administrera datan bakom webbplatsen.
 
-# Deadline 
+## Deadline 
   Torsdag 18 juni kl 12:00
 
-# Betygskriterier för G
-  [ ] Tillämpar PHP-programmering, inkl. aktuella ramverk, ex.  Laravel och Luna
-  [ ] Skapar kopplingar till SQL-databaser
-  [ ] Behärskar databashantering i PHP
-  [ ] Skapar webbformulär
-  [ ] Hanterar API:er och dataflöden på webben baserade på t ex   REST
-  [ ] Exporterar och importerar CSV-data
-  [ ] Publicerar PHP-applikationer
-  [ ] Konfigurerar en webbserver
-  [ ] Behärskar felhantering
-  [ ] Löser sammansatta problem inom programmering med PHP
-  [ ] Väljer lämpliga tekniska lösningar med PHP och SQL
-  [ ] Programmerar objektorienterat med PHP
-  [ ] Programmerar PHP-applikationer i webbmiljö
-  [ ] Använder SQL för att skapa databasdrivna webbapplikationer
-  [ ] Publicerar webbplatser
-  [ ] Skapar databasdrivna webbapplikationer
+## Betygskriterier för G
+  * Tillämpar PHP-programmering, inkl. aktuella ramverk, ex.  Laravel och Luna
+  * Skapar kopplingar till SQL-databaser
+  * Behärskar databashantering i PHP
+  * Skapar webbformulär
+  * Hanterar API:er och dataflöden på webben baserade på t ex   REST
+  * Exporterar och importerar CSV-data
+  * Publicerar PHP-applikationer
+  * Konfigurerar en webbserver
+  * Behärskar felhantering
+  * Löser sammansatta problem inom programmering med PHP
+  * Väljer lämpliga tekniska lösningar med PHP och SQL
+  * Programmerar objektorienterat med PHP
+  * Programmerar PHP-applikationer i webbmiljö
+  * Använder SQL för att skapa databasdrivna webbapplikationer
+  * Publicerar webbplatser
+  * Skapar databasdrivna webbapplikationer
 
-# Betygskriterier för VG
-  [ ] Självständigt hantera API:er och dataflöden på webben   baserade på t ex REST
-  [ ] Självständigt publicera webbplatser
-  [ ] Självständigt skapa databasdrivna webbapplikationer
+## Betygskriterier för VG
+  * Självständigt hantera API:er och dataflöden på webben   baserade på t ex REST
+  * Självständigt publicera webbplatser
+  * Självständigt skapa databasdrivna webbapplikationer
 
-# Litteratur
+## Litteratur
   Utdelade dokument på ITHSdistans
 
 ## Uppgift
@@ -63,18 +63,18 @@
   • Använd seeders och factories för att skapa medlemmar och lag. 100 medlemmar och 15
   lag/träningsgrupper.
 
-# Arbetsmetod
+## Arbetsmetod
   Gruppmedlemmarna ska skapa någon form av digital mötesplats (zoom, teams, webex, discord etc)
   och skicka en länk till hans.andersson@zocom.se så snart den är ordnad. Detta för att utbildaren ska
   kunna ”hälsa på” under arbetets gång och stämma av.
 
-# Inlämning
+## Inlämning
   Ett zippat filpaket samt länk till github-repo eller dylikt ska laddas upp till ITHS-distans.
   Redovisning
   Muntlig redovisning via webex torsdag 18 juni kl 13:00. Räkna med 15 minuter per grupp. I och med
   att alla grupper gör samma projekt, så kommer fokus för redovisningarna att variera enligt följande
 
-# schema:
+## schema:
   Redovisar Fokus på Ställer frågor efteråt
   Humleblomster Hantering av lag och aktiviteter Käringtand
   Käringtand Hantering av medlem Prästkrage
