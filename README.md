@@ -7,7 +7,8 @@
   * Tilda
   * Victor
 
-## Mål: Att bygga upp en webbplats för en idrottsförening.
+## Mål 
+  Att bygga upp en webbplats för en idrottsförening.
 
 ## Syfte 
   Med laravel som verktyg ska ni bygga upp en fullskalig webbplats för IK Svalan, där medlemmar kan logga in och administratörer kan administrera datan bakom webbplatsen.
