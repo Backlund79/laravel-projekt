@@ -69,7 +69,7 @@
  
 ## Schema
 
-  - Humleblomster redovisar Hantering av lag och aktiviteter. Käringtand ställer frågor
-  - Käringtand redovisar Hantering av medlem. Prästkrage ställer frågor
-  - Prästkrage redovisar Auth. Skogsklöver ställer frågor
-  - Skogsklöver redovisar Migration & seeds. Humleblomster ställer frågor
+  - Humleblomster redovisar **Hantering av lag och aktiviteter**. Käringtand ställer frågor
+  - Käringtand redovisar **Hantering av medlem**. Prästkrage ställer frågor
+  - Prästkrage redovisar **Auth**. Skogsklöver ställer frågor
+  - Skogsklöver redovisar **Migration & seeds**. Humleblomster ställer frågor
