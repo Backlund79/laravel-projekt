@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -17,7 +18,22 @@ class UsersController extends Controller
         // Get all members
         $users = User::where('admin', false)->paginate(25);
 
-        return view('users.index', compact(['users']));
+        return view('users.index', compact('users'));
+    }
+
+    /**
+     * Display a listing of users with unpaid fees.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function unpaid()
+    {
+        $unpaid = array_unique(Arr::flatten(\App\MembershipFee::select('user_id')->where('paid', false)->get()->toArray()));
+        
+        // Get all members
+        $users = User::where('admin', false)->whereIn('id', $unpaid)->paginate(25);
+
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -62,6 +78,8 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect(route('users.index'))->with('status', 'Användaren har tagists bort.');
     }
 }

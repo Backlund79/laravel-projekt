@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('users/unpaid', 'UsersController@unpaid')->name('users.unpaid');
 Route::resource('users', 'UsersController');
 
-Route::resource('membershipFee', 'MembershipFeeController');
+Route::resource('membershipFee', 'MembershipFeeController')->only('update');
