@@ -81,7 +81,9 @@ class MembershipFeeController extends Controller
      */
     public function update(Request $request, MembershipFee $membershipFee)
     {
-        //
+        $membershipFee->update(['paid' => true]);
+
+        return back();
     }
 
     /**

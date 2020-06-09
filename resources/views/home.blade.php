@@ -9,12 +9,23 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                    You are logged in!
+                    @if (auth()->user()->isAdmin())
+                        <h2>Administration</h2>
+                        <ul>
+                            <li><a href="{{ route('users.index') }}">Medlemmar</a></li>
+                        </ul>
+                    @else
+                        @if (auth()->user()->unpaidFeesCount() > 0)
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Du har {{ auth()->user()->unpaidFeesCount() }} obetalda medlemsavgifter!</strong> Vänligen kontakta administrationen.
+                        </div>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>

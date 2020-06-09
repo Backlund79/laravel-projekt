@@ -66,12 +66,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $dob = new \DateTime($data['dob']);
+        $today = new \DateTime();
+        $price = $dob->diff($today)->y >= 18 ? 500 : 300;
+
+        $user = User::create([
             'firstName' => $data['firstName'],
             'lastName' => $data['lastName'],
             'dob' => $data['dob'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($data['password'])
         ]);
+
+        $user->membershipFees()->create([
+            'price' => $price,
+            'year' => $today->format('y')
+        ]);
+
+        return $user;
     }
 }

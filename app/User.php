@@ -51,7 +51,7 @@ class User extends Authenticatable
      * 
      * @return \App\MembershipFee Array
      */
-    public function memberships() {
+    public function membershipFees() {
         return $this->hasMany(\App\MembershipFee::class)->orderBy('year', 'asc');
     }
 
@@ -73,5 +73,15 @@ class User extends Authenticatable
     public function unpaidFees()
     {
         return $this->hasMany(\App\MembershipFee::class)->where('paid', false)->orderBy('year', 'asc');
+    }
+
+    /**
+     * Unpaid Membership Fees
+     * 
+     * @return \App\MembershipFee Array
+     */
+    public function unpaidFeesCount()
+    {
+        return $this->hasMany(\App\MembershipFee::class)->where('paid', false)->count();
     }
 }
