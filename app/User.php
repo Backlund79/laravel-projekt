@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstName', 'lastName', 'dob', 'email', 'password',
     ];
 
     /**
@@ -29,11 +29,12 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * The fullname of the user
+     * 
+     * @return String Fullname
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function fullname() {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
 }
