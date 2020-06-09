@@ -23,6 +23,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $paid = \App\MembershipFee::where('paid', false);
+        $unpaid = \App\MembershipFee::where('paid', true);
+        $membershipFees = [
+            'paid' => [
+                'count' => $paid->count(),
+                'sum' => $paid->sum('price')
+            ],
+            'unpaid' => [
+                'count' => $unpaid->count(),
+                'sum' => $unpaid->sum('price')
+            ]
+        ];
+        return view('home', compact('membershipFees'));
     }
 }
