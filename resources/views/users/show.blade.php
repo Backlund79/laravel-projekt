@@ -3,7 +3,15 @@
 @section('content')
 <div class="container">
     <a href="{{ route('users.index') }}">&laquo; Tillbaka</a>
-    <h3>{{ $user->fullname() }} ({{ $user->dob }})</h3>
+    <h3>
+        {{ $user->fullname() }} ({{ $user->dob }})
+        <form action="{{ route('users.destroy', $user->id) }}" method="post" class="d-inline">
+            @csrf
+            @method('delete')
+        
+            <button type="submit" class="btn btn-sm btn-outline-danger">Ta bort</button>
+        </form>
+    </h3>
     <ul>
         @foreach ($user->membershipFees as $fee)
         <li>
@@ -13,7 +21,7 @@
                     @csrf
                     @method('patch')
 
-                    <button type="submit" class="btn btn-sm btn-outline-primary">Betalt</button>
+                    <button type="submit" class="btn btn-sm btn-link">Betalt</button>
                 </form>
             @endif
         </li>
