@@ -37,4 +37,41 @@ class User extends Authenticatable
         return $this->firstName . ' ' . $this->lastName;
     }
 
+    /**
+     * Checks if user is Admin
+     * 
+     * @return Bool
+     */
+    public function isAdmin() {
+        return $this->admin;
+    }
+
+    /**
+     * One to many relationship to MembershipFee
+     * 
+     * @return \App\MembershipFee Array
+     */
+    public function memberships() {
+        return $this->hasMany(\App\MembershipFee::class)->orderBy('year', 'asc');
+    }
+
+    /**
+     * Paid Membership Fees
+     * 
+     * @return \App\MembershipFee Array
+     */
+    public function paidFees()
+    {
+        return $this->hasMany(\App\MembershipFee::class)->where('paid', true)->orderBy('year', 'asc');
+    }
+
+    /**
+     * Unpaid Membership Fees
+     * 
+     * @return \App\MembershipFee Array
+     */
+    public function unpaidFees()
+    {
+        return $this->hasMany(\App\MembershipFee::class)->where('paid', false)->orderBy('year', 'asc');
+    }
 }
