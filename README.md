@@ -8,11 +8,11 @@
   * Victor
 
 ## Installation
-    1. `composer install`
-    2. Kopiera .env.example till .env
-    3. `php artisan key:generate`
-    4. Kontrollera att databas inställningarna är korrekt
-    5. `php artisan migrate:fresh --seed`
+   1. `composer install`
+   2. Kopiera .env.example till .env
+   3. `php artisan key:generate`
+   4. Kontrollera att databas inställningarna är korrekt
+   5. `php artisan migrate:fresh --seed`
 
 ## Mål 
   Att bygga upp en webbplats för en idrottsförening.
