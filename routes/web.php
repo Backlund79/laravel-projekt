@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -25,3 +25,6 @@ Route::get('users/unpaid', 'UsersController@unpaid')->name('users.unpaid');
 Route::resource('users', 'UsersController');
 
 Route::resource('membershipFee', 'MembershipFeeController')->only('update');
+
+
+Route::get('/', 'startPageController@startpage')->name('startpage');
