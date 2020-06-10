@@ -13,6 +13,10 @@
             <td> {{$row['activity']}} </td><br>
           </tr>
         @endforeach
+    {{-- </div>
+     <h1> Våra aktiviteter </h1>
+    </div> --}}
+
       @endsection
       
     </div>
