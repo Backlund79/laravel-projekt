@@ -33,7 +33,8 @@ class User extends Authenticatable
      * 
      * @return String Fullname
      */
-    public function fullname() {
+    public function fullname()
+    {
         return $this->firstName . ' ' . $this->lastName;
     }
 
@@ -42,7 +43,8 @@ class User extends Authenticatable
      * 
      * @return Bool
      */
-    public function isAdmin() {
+    public function isAdmin()
+    {
         return $this->admin;
     }
 
@@ -51,7 +53,8 @@ class User extends Authenticatable
      * 
      * @return \App\MembershipFee Array
      */
-    public function membershipFees() {
+    public function membershipFees()
+    {
         return $this->hasMany(\App\MembershipFee::class)->orderBy('year', 'asc');
     }
 
@@ -83,5 +86,15 @@ class User extends Authenticatable
     public function unpaidFeesCount()
     {
         return $this->hasMany(\App\MembershipFee::class)->where('paid', false)->count();
+    }
+
+    /**
+     * Relations to Teams
+     * 
+     * @return \App\Team 
+     */
+    public function teams()
+    {
+        return $this->belongsToMany('App\Team');
     }
 }
