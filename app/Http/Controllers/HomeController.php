@@ -23,8 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $paid = \App\MembershipFee::where('paid', false);
-        $unpaid = \App\MembershipFee::where('paid', true);
+        $paid = \App\MembershipFee::where('paid', true);
+        $unpaid = \App\MembershipFee::where('paid', false);
         $membershipFees = [
             'paid' => [
                 'count' => $paid->count(),
