@@ -9,6 +9,17 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     /**
+     * Construct a new instance of the controller
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin')->only(['index', 'unpaid', 'show', 'destroy']);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -29,7 +40,7 @@ class UsersController extends Controller
     public function unpaid()
     {
         $unpaid = array_unique(Arr::flatten(\App\MembershipFee::select('user_id')->where('paid', false)->get()->toArray()));
-        
+
         // Get all members
         $users = User::where('admin', false)->whereIn('id', $unpaid)->paginate(25);
 
