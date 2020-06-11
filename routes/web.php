@@ -26,5 +26,6 @@ Route::resource('users', 'UsersController');
 
 Route::resource('membershipFee', 'MembershipFeeController')->only('index', 'update');
 
+Route::resource('teams', 'TeamController');
 
 Route::get('/', 'startPageController@startpage')->name('startpage');
