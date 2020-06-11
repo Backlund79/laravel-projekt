@@ -27,5 +27,21 @@
         </li>
         @endforeach
     </ul>
+    
+    <h3>Lag</h3>
+
+            <ul>
+                 @foreach ($user->teams as $team)
+                <li class="list-group-item border-0"> {{ $team->teamName }}
+               <form action="{{ route('teams.detach', [$team->id, $user->id]) }}" method="post" class="d-inline">
+            @csrf
+            @method('patch')
+        
+                <button type="submit" class="btn btn-sm btn-outline-danger">Ta bort</button>
+            </form>
+        </li>
+    @endforeach
+    </ul>
+
 </div>
 @endsection
