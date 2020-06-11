@@ -54,6 +54,12 @@ class UserSeeder extends Seeder
                     'year'=> $years[$i],
                     'paid' => $i === 2 ? rand(0,1) : 1
                 ]);
+
+                $teams = rand(1,3);
+
+                for ($i = 0; $i < $teams; $i++) {
+                    $user->teams()->attach(rand(1,45));
+                }
             }
         });
     }

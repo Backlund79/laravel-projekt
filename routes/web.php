@@ -18,6 +18,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('users/unpaid', 'UsersController@unpaid')->name('users.unpaid');
+Route::post('users/{user}/attach', 'UsersController@attach')->name('users.attach');
+Route::post('users/{user}/detach/{id}', 'UsersController@detach')->name('users.detach');
 Route::resource('users', 'UsersController');
 
 Route::resource('membershipFee', 'MembershipFeeController')->only('index', 'update');

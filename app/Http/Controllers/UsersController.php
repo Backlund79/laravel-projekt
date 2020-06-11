@@ -55,7 +55,15 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        $ids = [];
+
+        foreach($user->teams as $team) {
+            array_push($ids, $team->activity->id);
+        }
+
+        $activites = \App\Activity::whereNotIn('id', $ids)->get();
+
+        return view('users.show', compact('user', 'activites'));
     }
 
     /**
@@ -92,5 +100,31 @@ class UsersController extends Controller
         $user->delete();
 
         return redirect(route('users.index'))->with('status', 'Användaren har tagists bort.');
+    }
+
+    /**
+     * Add relationship to team
+     *
+     * @param  \App\User  $user
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function attach(User $user, Request $request)
+    {
+        $user->teams()->attach($request->team_id);
+        return back();
+    }
+
+    /**
+     * Remove relationship to team
+     *
+     * @param  \App\User  $user
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function detach(User $user, $id)
+    {
+        $user->teams()->detach($id);
+        return back();
     }
 }

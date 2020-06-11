@@ -15,13 +15,13 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::all();
+        $teams = Team::paginate(25);
         return view('teams.index', compact('teams'));
     }
 
     /**
      * Show the form for creating a new resource.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -103,5 +103,18 @@ class TeamController extends Controller
     {
         $team->users()->detach($id);
         return back();
+    }
+
+    /**
+     * JSON fetch teams by Activity
+     *
+     * @param Int $id Activity id
+     *
+     * @return \Illuminate\HTTP\JsonResponse
+     */
+    public function teamsByActivity($id) {
+        $teams = Team::where('activity_id', $id)->orderBy('teamName', 'asc')->get();
+
+        return response()->json($teams);
     }
 }

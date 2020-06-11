@@ -7,7 +7,7 @@
         {{ session('status') }}
     </div>
     @endif
-
+<a href="{{ route('home') }}">&laquo; Tillbaka</a>
     <h3>Medlemmar</h3>
     <ul class="list-group mb-2">
         @foreach ($users as $user)

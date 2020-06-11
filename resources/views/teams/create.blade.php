@@ -11,11 +11,11 @@
                     <form method="POST" action="{{ route('teams.store') }}">
                         @csrf
                             <div class="form-group row">
-                              
+                               
 
                                 <label for="activitySelect" class="col-md-4 col-form-label text-md-right">{{ __('Aktivitet') }}</label>
                                 
-                                
+                              
                               <div class="col-md-6">
                               <select class="custom-select" id="activitySelect" name="activity_id">
                                 <option selected>Välj Aktivitet...</option>

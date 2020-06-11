@@ -1,7 +1,8 @@
 <?php
 use App\Team;
-use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Faker\Generator as Faker;
+use Illuminate\Database\Seeder;
 
 
 class TeamSeeder extends Seeder
@@ -12,12 +13,12 @@ class TeamSeeder extends Seeder
      * @return void
      */
    public function run(Faker $faker){
-            
+
  for ($a = 1; $a <= 3; $a++) {
-        
+
             for ($t = 1; $t<= 15; $t++){
-                App\Team::create([
-                'teamName' => $faker->word,
+                Team::create([
+                'teamName' => Str::ucfirst($faker->word),
                 'activity_id' => $a
                 ]);
             }
