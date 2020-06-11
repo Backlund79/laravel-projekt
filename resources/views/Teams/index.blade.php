@@ -8,12 +8,13 @@
         {{ session('status') }}
     </div>
     @endif
-
+<a href="{{ route('home') }}">&laquo; Tillbaka</a>
     <h3>Lag</h3>
     <ul class="list-group mb-2">
         @foreach ($teams as $team)
             <li class="list-group-item">
-                {{ $team->teamName }}
+            <a href="{{ route('teams.show', $team->id) }}">{{ $team->teamName }}</a>
+            {{ $team->activity->activity }}
             </li>
         @endforeach
     </ul>

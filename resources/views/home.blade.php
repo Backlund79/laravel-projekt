@@ -29,6 +29,8 @@
                                 <li class="list-group-item border-0"><a href="{{ route('users.unpaid') }}">Medlemmar med obetalade avgifter</a></li>
                                 <li class="list-group-item border-0"><a href="{{ route('teams.index') }}
                                 ">Lag</a></li>
+                                 <li class="list-group-item border-0"><a href="{{ route('teams.create') }}
+                                ">Lägg till Lag</a></li>
                             </ul>
                         </div>
                         <div class="col-6">

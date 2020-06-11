@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TeamController extends Controller
 {
@@ -20,23 +21,29 @@ class TeamController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        $activities = \App\Activity::all();
+        return view('teams.create', compact('activities'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store new teams
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        Team::create($request->validate([
+            'teamName' => ['required', 'string', 'max:255'],
+            'activity_id' => ['required', 'exists:App\Activity,id']
+        ]));
+
+        return redirect(route('teams.index'));
     }
 
     /**
@@ -47,7 +54,7 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        //
+        return view('teams.show', compact('team'));
     }
 
     /**
@@ -81,6 +88,20 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        //
+        $team->delete();
+
+        return redirect(route('teams.index'))->with('status', 'Laget har tagists bort.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Team  $team
+     * @return \Illuminate\Http\Response
+     */
+    public function detach(Team $team, $id)
+    {
+        $team->users()->detach($id);
+        return back();
     }
 }

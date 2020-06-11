@@ -26,6 +26,8 @@ Route::resource('users', 'UsersController');
 
 Route::resource('membershipFee', 'MembershipFeeController')->only('index', 'update');
 
+Route::patch('teams/{team}/detach/{id}', 'TeamController@detach')->name('teams.detach');
 Route::resource('teams', 'TeamController');
+
 
 Route::get('/', 'startPageController@startpage')->name('startpage');
