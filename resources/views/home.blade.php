@@ -33,15 +33,20 @@
                             <h2>Medlemsavgifter</h2>
 
                             <ul class="list-group">
+                                <li class="list-group-item border-0"><a href="{{ route('membershipFee.index') }}">Alla medlemsavgifter</a></li>
+
                                 <li class="list-group-item border-0">
                                     <h4>Betalade</h4>
-                                    <p class="m-0">Antal: {{ $membershipFees['paid']['count'] }}</p>
-                                    <p class="m-0">Summa: {{ $membershipFees['paid']['sum'] }}kr</p>
+                                    @php
+                                    $fmt = numfmt_create( 'sv_SE', NumberFormatter::CURRENCY )
+                                    @endphp
+                                    <p class="m-0">Antal: {{ $paidFees->total }}</p>
+                                    <p class="m-0">Summa: {{ numfmt_format_currency($fmt, $paidFees->sum, 'SEK') }}</p>
                                 </li>
                                 <li class="list-group-item border-0">
                                     <h4>Ej Betalade</h4>
-                                    <p class="m-0">Antal: {{ $membershipFees['unpaid']['count'] }}</p>
-                                    <p class="m-0">Summa: {{ $membershipFees['unpaid']['sum'] }}kr</p>
+                                    <p class="m-0">Antal: {{ $unpaidFees->total }}</p>
+                                    <p class="m-0">Summa: {{ numfmt_format_currency($fmt, $unpaidFees->sum, 'SEK') }}</p>
                                 </li>
                             </ul>
                         </div>
