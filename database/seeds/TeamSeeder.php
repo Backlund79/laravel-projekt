@@ -21,21 +21,6 @@ class TeamSeeder extends Seeder
                 'teamName' => Str::ucfirst($faker->word),
                 'activity_id' => $a
                 ]);
-
-                $team = Team::orderBy('id', 'desc')->first();
-
-                for ($i = 0; $i < 2; $i++) {
-                    do {
-                        $rand = rand(1, 100);
-
-                        $ids = [];
-                        foreach(App\User::find($rand)->teams as $team) {
-                            array_push($ids, $team->activity->id);
-                        }
-                    } while(in_array($rand, $ids));
-
-                    $team->users()->attach($rand);
-                }
             }
         }
     }
