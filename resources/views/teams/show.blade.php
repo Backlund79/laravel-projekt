@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
         <form action="{{ route('teams.destroy', $team->id) }}" method="post" class="d-inline">
             @csrf
             @method('delete')
-        
+
             <button type="submit" class="btn btn-sm btn-outline-danger">Ta bort</button>
         </form>
     </h3>
@@ -18,7 +18,7 @@
             <form action="{{ route('teams.detach', [$team->id, $user->id]) }}" method="post" class="d-inline">
             @csrf
             @method('patch')
-        
+
                 <button type="submit" class="btn btn-sm btn-outline-danger">Ta bort</button>
             </form>
         </li>
