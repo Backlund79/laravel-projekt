@@ -39,19 +39,20 @@ class UserSeeder extends Seeder
             $price = $dob->diff($today)->y >= 18 ? 500 : 300;
             $member->membershipFees()->create([
                 'price' => $price,
-                'year' => $years[$i]
+                'year' => $years[$i],
+                'paid' => $i === 2 ? 0 : 1
             ]);
         }
         // Random members
         factory(User::class, 99)->create()->each(function ($user) use ($years) {
             for ($i = 0; $i < 3; $i++) {
                 $dob = new \DateTime($user->dob);
-                $today = new \DateTime();
+                $today = new \DateTime($years[$i]);
                 $price = $dob->diff($today)->y >= 18 ? 500 : 300;
                 $user->membershipFees()->create([
                     'price' => $price,
                     'year'=> $years[$i],
-                    'paid' => rand(0,1)
+                    'paid' => $i === 2 ? rand(0,1) : 1
                 ]);
             }
         });
