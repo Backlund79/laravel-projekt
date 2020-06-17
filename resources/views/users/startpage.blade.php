@@ -28,7 +28,8 @@
       
       @foreach ( $teams as $row) 
           <tr>
-            <td> {{$row['teamName']}} </td>
+            <td> {{$row['teamName']}}  -  
+              {{$row->activity->activity}} </td>
           </tr><br>  
         @endforeach
     </div>
