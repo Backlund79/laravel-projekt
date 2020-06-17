@@ -60,44 +60,44 @@
                         <h3>Dina uppgifter</h3>
                         
                         <form action="{{ route('users.update', auth()->user()->id) }}" method="post" class="d-inline">
-                            @csrf
-                            @method('patch')
                             
-                            <input type="text">
-
-                            <button type="submit" class="btn btn-sm btn-link">Uppdatera</button>
-                        </form>
-
-                        <table>
-                            <tr>
-                                <th>Namn:</th>
-                                <td>{{ auth()->user()->fullname() }}</td>
-                            </tr>
-                            <tr>
-                                <th>Email:</th>
-                                <td>{{ auth()->user()->email }}</td>
-                               
-                                    
-                            </tr>
-                            <tr>
-                                <th>Födelsedatum:</th>
-                                <td>{{ auth()->user()->dob }}</td>
-                            </tr>
-                        </table>
-                        <h3 class="mt-3">Dina lag</h3>                       
-                        @foreach (auth()->user()->teams as $team)
-                        
-                        <table>
-                            <h4>{{ $team->activity->activity }}</h4>
-                            <h5>{{ $team-> teamName}}</h5>
-                            @foreach ($team->users as $user)
+                            
+                            <table>
+                                <tr>
+                                    <th>Namn:</th>
+                                    <td>{{ auth()->user()->fullname() }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ auth()->user()->email }}</td>
+                                    <td class="pl-5">
+                                        @csrf
+                                        @method('patch')
+                                        
+                                        <input name="email" type="text" placeholder="Redigera email">
+                                        <button type="submit" class="btn btn-sm btn-link">Uppdatera</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Födelsedatum:</th>
+                                    <td>{{ auth()->user()->dob }}</td>
+                                </tr>
+                            </table>
+                            <h3 class="mt-3">Dina lag</h3>                       
+                            @foreach (auth()->user()->teams as $team)
+                            
+                            <table>
+                                <h4>{{ $team->activity->activity }}</h4>
+                                <h5>{{ $team-> teamName}}</h5>
+                                @foreach ($team->users as $user)
                                 <tr>
                                     <td>
                                         {{ $user->fullname()}}
                                     </td>
                                 </tr>
-                            @endforeach
-                        <table>
+                                @endforeach
+                            <table>
+                        </form>
                         @endforeach
                     
                         

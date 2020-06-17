@@ -86,7 +86,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->update(['email' => $request->email]);
+        return back();
     }
 
     /**
