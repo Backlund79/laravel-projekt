@@ -56,6 +56,51 @@
                         </div>
                     </div>
                     @else
+                    <!-- Medlemmar inloggade -->
+                        <h3>Dina uppgifter</h3>
+                        
+                        <form action="{{ route('users.update', auth()->user()->id) }}" method="post" class="d-inline">
+                            @csrf
+                            @method('patch')
+                            
+                            <input type="text">
+
+                            <button type="submit" class="btn btn-sm btn-link">Uppdatera</button>
+                        </form>
+
+                        <table>
+                            <tr>
+                                <th>Namn:</th>
+                                <td>{{ auth()->user()->fullname() }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email:</th>
+                                <td>{{ auth()->user()->email }}</td>
+                               
+                                    
+                            </tr>
+                            <tr>
+                                <th>Födelsedatum:</th>
+                                <td>{{ auth()->user()->dob }}</td>
+                            </tr>
+                        </table>
+                        <h3 class="mt-3">Dina lag</h3>                       
+                        @foreach (auth()->user()->teams as $team)
+                        
+                        <table>
+                            <h4>{{ $team->activity->activity }}</h4>
+                            <h5>{{ $team-> teamName}}</h5>
+                            @foreach ($team->users as $user)
+                                <tr>
+                                    <td>
+                                        {{ $user->fullname()}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        <table>
+                        @endforeach
+                    
+                        
                         @if (auth()->user()->unpaidFeesCount() > 0)
                         <div class="alert alert-danger" role="alert">
                             <strong>Du har {{ auth()->user()->unpaidFeesCount() }} obetalda medlemsavgifter!</strong> Vänligen kontakta administrationen.
